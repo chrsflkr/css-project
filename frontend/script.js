@@ -1,21 +1,8 @@
-console.log('logged message')
 
-let countriesData = []
+// console.log the value of the input as you type
 
-const rootElement = document.querySelector('#root')
+const inputField = document.getElementById("inputField");
 
-fetch('https://restcountries.com/v3.1/all')
-  .then(response => response.json())
-  .then(responseJson => {
-    console.log(responseJson)
-    countriesData = responseJson
-
-    for (let index = 215; index < 225; index++) {
-      rootElement.insertAdjacentHTML('beforeend', `
-        <div class="card">
-          <h2>${countriesData[index].name.common}</h2>
-          <h3>${countriesData[index].population}</h3>
-        </div>
-      `)
-    }
-  })
+inputField.addEventListener("input", function(event) {
+  console.log("Input field value changed to:", event.target.value);
+});
